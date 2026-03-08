@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heads or tails</title>
+    <link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="coin.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪙</text></svg>">
+</head>
+<body>
+    <div class="app">
+        <nav class="nav-bar">
+            <a href="#" class="nav-link active">Coin</a>
+            <a href="../wheel/" class="nav-link">Wheel</a>
+            <a href="../ball/" class="nav-link">Ball</a>
+        </nav>
+
+        <h1>Heads or tails?</h1>
+
+        <div class="coin-wrapper">
+            <div class="coin" id="coin" tabindex="0" role="button" aria-label="Подбросить монету">
+                <div class="side front">
+                    <img src="imgs/head.svg" alt="Орёл" class="coin-image">
+                </div>
+                <div class="side back">
+                    <img src="imgs/tails.svg" alt="Решка" class="coin-image">
+                </div>
+            </div>
+        </div>
+
+        <p class="result" id="result">Flip a coin</p>
+
+        <div class="stats">
+            <p>Total: <span id="totalFlips">0</span></p>
+            <p>Head: <span id="headsCount">0</span></p>
+            <p>Tails: <span id="tailsCount">0</span></p>
+        </div>
+    </div>
+
+    <script src="coin.js"></script>
+</body>
+</html>

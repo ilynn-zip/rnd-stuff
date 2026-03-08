@@ -1,0 +1,79 @@
+.coin-wrapper {
+    margin: 1rem auto 2rem;
+    width: 160px;
+    height: 160px;
+    perspective: 1000px;
+}
+
+.coin {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transform: rotateY(0deg);
+    cursor: pointer; /* Добавлено для интерактива */
+}
+
+.side {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: white;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.front {
+    transform: rotateY(0deg);
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.coin-image {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.result {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #334155;
+    margin: 1.5rem 0;
+    min-height: 3.5rem;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    background: #f1f5f9;
+    padding: 1.2rem 1.5rem;
+    border-radius: 40px;
+    font-size: 1rem;
+    color: #1e293b;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.stats p {
+    display: flex;
+    flex-direction: column;
+}
+
+.stats span {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
+}

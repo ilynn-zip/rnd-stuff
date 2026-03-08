@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang=en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic ball</title>
+    <link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="ball.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎱</text></svg>">
+</head>
+<body>
+    <div class="app">
+        <nav class="nav-bar">
+            <a href="../coin/" class="nav-link">Coin</a>
+            <a href="../wheel/" class="nav-link">Wheel</a>
+            <a href="#" class="nav-link active">Ball</a>
+        </nav>
+
+        <h1>🔮 Magic ball</h1>
+
+        <div class="ball-container">
+            <div class="ball" id="ball" tabindex="0" role="button" aria-label="Задать вопрос">
+                <div class="ball-answer" id="answer">8</div>
+            </div>
+        </div>
+
+        <p class="result" id="resultMessage">Shake</p>
+    </div>
+
+    <script src="ball.js"></script>
+</body>
+</html>

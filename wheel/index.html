@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheel of Fortune</title>
+    <link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="wheel.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎡</text></svg>">
+
+</head>
+<body>
+    <div class="app">
+        <nav class="nav-bar">
+            <a href="../coin/" class="nav-link">Coin</a>
+            <a href="#" class="nav-link active">Wheel</a>
+            <a href="../ball/" class="nav-link">Ball</a>
+        </nav>
+
+        <h1>🎡 Wheel of Fortune</h1>
+
+        <!-- Колесо (canvas) с курсором pointer -->
+        <div class="wheel-container">
+            <canvas id="wheelCanvas" width="300" height="300" style="cursor: pointer;"></canvas>
+            <div class="pointer"></div>
+        </div>
+
+        <!-- Результат -->
+        <p class="result" id="resultMessage">Spin the wheel</p>
+
+        <!-- Управление словами -->
+        <div class="word-controls">
+            <input type="text" id="newWordInput" placeholder="Enter" maxlength="20">
+            <button id="addWordBtn" class="small-btn">➕ Add</button>
+            <button id="clearAllBtn" class="small-btn">🗑 Clear</button>
+        </div>
+
+        <!-- Список слов -->
+        <ul class="word-list" id="wordList"></ul>
+    </div>
+
+    <script src="wheel.js"></script>
+</body>
+</html>
