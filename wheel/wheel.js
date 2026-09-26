@@ -168,18 +168,30 @@ function spinWheel() {
 
     isSpinning = true;
 
-    const spinRevolutions = 5 + Math.floor(Math.random() * 5); // 5-9 оборотов
-    const targetSector = Math.floor(Math.random() * words.length);
-    const targetAngle = 360 * spinRevolutions + targetSector * (360 / words.length);
+    const pointerAngle = 270;
+    const sectorSize = 360 / words.length;
+    const targetIndex = Math.floor(Math.random() * words.length);
 
+    // Центр выбранного сектора должен оказаться под указателем
+    const targetCenterAngle = targetIndex * sectorSize + sectorSize / 2;
+    const finalAngle = (pointerAngle - targetCenterAngle + 360) % 360;
+
+    const spinRevolutions = 5 + Math.floor(Math.random() * 5);
     const startAngle = currentAngle;
+
+    const currentMod = ((startAngle % 360) + 360) % 360;
+    const deltaToFinal = (finalAngle - currentMod + 360) % 360;
+
+    const targetAngle = startAngle + spinRevolutions * 360 + deltaToFinal;
+
     const startTime = performance.now();
-    const duration = 3000; // 3 секунды
+    const duration = 3000;
 
     function animateSpin(now) {
         const elapsed = now - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        const easeProgress = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+
         currentAngle = startAngle + (targetAngle - startAngle) * easeProgress;
 
         drawWheel(currentAngle);
@@ -190,12 +202,12 @@ function spinWheel() {
             currentAngle = targetAngle % 360;
             drawWheel(currentAngle);
 
-            const normalized = (currentAngle % 360 + 360) % 360;
-            const sectorSize = 360 / words.length;
-            let index = Math.floor(normalized / sectorSize);
+            const normalizedPointer = ((pointerAngle - currentAngle) % 360 + 360) % 360;
+            let index = Math.floor(normalizedPointer / sectorSize);
+
             if (index >= words.length) index = words.length - 1;
 
-            resultMessage.textContent = `${words[index]}`;
+            resultMessage.textContent = words[index];
 
             isSpinning = false;
             spinAnimationId = null;
